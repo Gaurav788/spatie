@@ -11,8 +11,7 @@ use Hash;
     
 class UserController extends Controller
 {
-    function __construct() 
-    
+    function __construct()     
     {
          $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index','show']]);
          $this->middleware('permission:user-create', ['only' => ['create','store']]);

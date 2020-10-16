@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
     
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
     
 class ProductController extends Controller
 { 
@@ -26,6 +27,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+        dd(Auth::user());
         $products = Product::latest()->paginate(5);
         return view('products.index',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
